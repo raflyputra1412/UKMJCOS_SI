@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Content;
+use App\Models\Inventaris;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -13,9 +15,17 @@ class pengurusController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
+        $user = User::count();
+        $content = Content::count();
+        $last_content = Content::orderBy('id', 'desc')->limit(1)->get(); 
+        $inventaris = Inventaris::count(); 
         return view('pengurus.index', [
             'active' => 'dashboard',
+            'user' => $user,
+            'last_added_content' => $last_content,
+            'content' => $content,
+            'inventaris' => $inventaris,
         ]);
     }
 

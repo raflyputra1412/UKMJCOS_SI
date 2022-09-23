@@ -1,4 +1,4 @@
-<div class="p-3 space-y-2 w-64 inline-block bg-gray-900 text-gray-100 font-normal">
+<div class="h-screen sticky top-0 p-3 space-y-2 w-64 bg-gray-900 text-gray-100 font-normal">
     <div class="flex items-center p-2 space-x-4">
         <img src="https://source.unsplash.com/100x100/?nature" alt="" class="w-12 h-12 rounded-full bg-gray-500">
         <div>
@@ -88,8 +88,8 @@
                 </a>
             </li>
 
-            <li>
-                <a rel="noopener noreferrer" href="#" class="flex items-center p-2 space-x-3 rounded-md">
+            <li class="{{ ($active === 'absensi') ? 'bg-gray-700' : '' }}">
+                <a rel="noopener noreferrer" href="/absensi" class="flex items-center p-2 space-x-3 rounded-md">
                     {{--absensi icon  --}}
                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="24px" fill="#ffffff">
                     <g>
@@ -115,13 +115,13 @@
                         </g>
                     </g>
                 </svg>
-                    <span>Absensi</span>
+                    <span>Absensi & Pertemuan</span>
                 </a>
             </li>
         </ul>
         <ul class="pt-4 pb-2 space-y-1 text-sm">
-            <li>
-                <a rel="noopener noreferrer" href="#" class="flex items-center p-2 space-x-3 rounded-md">
+            <li class="{{ ($active === 'content') ? 'bg-gray-700' : '' }}">
+                <a rel="noopener noreferrer" href="/content" class="flex items-center p-2 space-x-3 rounded-md">
                     {{-- content icon --}}
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 490.2 490.2" style="enable-background:new 0 0 490.2 490.2;" xml:space="preserve" width="20px" fill="#ffffff">
                         <g>

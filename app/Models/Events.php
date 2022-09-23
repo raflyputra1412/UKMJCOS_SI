@@ -9,6 +9,8 @@ class Events extends Model
 {
     use HasFactory;
 
+    protected $table = 'events';
+
     // protected $guarded = ['id'];
     protected $casts = ['roles_panitia' => 'array'];
     
@@ -18,5 +20,5 @@ class Events extends Model
         'waktu',
         'ketua_event',
         'roles_panitia',
-    ];    
+    ];   
 }

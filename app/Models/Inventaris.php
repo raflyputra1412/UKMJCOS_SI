@@ -9,5 +9,7 @@ class Inventaris extends Model
 {
     use HasFactory;
 
+    protected $table = 'inventaris';
+    
     protected $guarded = ['id'];
 }

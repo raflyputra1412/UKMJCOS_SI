@@ -15,10 +15,11 @@ class InventarisController extends Controller
      */
     public function index()
     {
+        $inventaris = Inventaris::orderBy('id', 'asc')->paginate(10);
         return view('pengurus.inventaris.index', [
             'title' => 'Inventaris',
             'active' => 'inventaris',
-            'inventaris' => Inventaris::first()->paginate(10),
+            'inventaris' => $inventaris,
         ]);
     }
 

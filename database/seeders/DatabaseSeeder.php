@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Content;
 use App\Models\Events;
 use App\Models\Inventaris;
 use App\Models\User;
@@ -29,55 +30,6 @@ class DatabaseSeeder extends Seeder
             'acara' => 'Perkenalan anggota baru',
         ]);
 
-        // //buat nim random
-        // $nimLength = 9;
-        // $characters = "0123456789";
-        // $randomNim = "";
-
-        // for ($i=0; $i < $nimLength; $i++) { 
-        //     $index = rand(0, strlen($characters));
-        //     $randomNim .= $characters[$index];
-        // }
-        // // selesai nim
-
-        // $prodi_arr = array(
-        //     "S1-Sistem Komputer",
-        //     "S1-Sistem Informasi",
-        //     "S1-Teknologi Informasi",
-        //     "S1-Bisnis Digital",
-        //     "D3-Manajemen Informatika",
-        // );
-
-        // $angkatan_arr = array(
-        //     "2017",
-        //     "2018",
-        //     "2019",
-        //     "2020",
-        //     "2021",
-        //     "2022",
-        // );
-
-        // $jabatan_arr = array(
-        //     "Pengurus",
-        //     "Anggota",
-        // );
-
-        // $faker = Faker::create('id_ID');
-        
-        // for($i=1; $i < 10; $i++){
-        // DB::table('users')->insert([
-        //         'nim' => $randomNim,
-        //         'nama_lengkap' => $faker->name,
-        //         'program_studi' => array_rand($prodi_arr),
-        //         'angkatan' => array_rand($angkatan_arr),
-        //         'jabatan' => array_rand($jabatan_arr),
-        //         'no_hp' => $faker->phoneNumber,
-        //         'email' => $faker->email,
-        //         'alamat' => $faker->address,
-        //         'password' => bcrypt('12345'),
-        //     ]);
-        // }
-
         User::create([
             'nim' => '170010009',
             'nama_lengkap' => 'Muhammad Rafly Hersa Putra',
@@ -89,6 +41,43 @@ class DatabaseSeeder extends Seeder
             'alamat' => 'pemogan perum parerepan no 3A',
             'password' => bcrypt('12345'),
         ]);
+
+        User::create([
+            'nim' => '208917311',
+            'nama_lengkap' => 'Faela Putri',
+            'program_studi' => 'S1-Sistem Informasi',
+            'angkatan' => '2020',
+            'jabatan' => 'Anggota',
+            'no_hp' => '081543537883',
+            'email' => 'faela@gmail.com',
+            'alamat' => 'Jl Diponegoro',
+            'password' => bcrypt('12345'),
+        ]);
+
+        User::create([
+            'nim' => '172020801',
+            'nama_lengkap' => 'Ananda Pamungkas',
+            'program_studi' => 'S1-Sistem Komputer',
+            'angkatan' => '2017',
+            'jabatan' => 'Pengurus',
+            'no_hp' => '087678651123',
+            'email' => 'ananda@gmail.com',
+            'alamat' => 'Batu Bulan',
+            'password' => bcrypt('12345'),
+        ]);
+
+        User::create([
+            'nim' => '181089012',
+            'nama_lengkap' => 'Faisal Nuddin',
+            'program_studi' => 'S1-Sistem Informasi',
+            'angkatan' => '2018',
+            'jabatan' => 'Anggota',
+            'no_hp' => '085687654112',
+            'email' => 'faisal@gmail.com',
+            'alamat' => 'Renon',
+            'password' => bcrypt('12345'),
+        ]);
+
 
         Inventaris::create([
             'nama_barang' => 'Costume cosplay maskot JCOS',
@@ -108,37 +97,5 @@ class DatabaseSeeder extends Seeder
             'roles_panitia' => json_encode(["sekretaris", "bendahara"," konsumroh"], true),
         ]);
 
-        // User::create([
-        //     'nim' => '170010010',
-        //     'nama_lengkap' => 'Random name',
-        //     'program_studi' => 'Sistem Informasi',
-        //     'angkatan' => '2018',
-        //     'jabatan' => 'anggota',
-        //     'no_hp' => '089687679663',
-        //     'email' => 'random@gmail.com',
-        //     'alamat' => 'jl diponogoro nomor 110',
-        //     'password' => bcrypt('12345'),
-        // ]);
-
-        // $user = [
-        //     [
-        //        'username' => 'admin',
-        //        'name'=>'ini akun Admin',
-        //        'email'=>'admin@example.com',
-        //         'level'=>'admin',
-        //        'password'=> bcrypt('123456'),
-        //     ],
-        //     [
-        //         'username' => 'user',
-        //        'name'=>'ini akun User (non admin)',
-        //        'email'=>'user@example.com',
-        //         'level'=>'editor',
-        //        'password'=> bcrypt('123456'),
-        //     ],
-        // ];
-
-        // foreach ($user as $key => $value) {
-        //     User::create($value);
-        // }
     }
 }

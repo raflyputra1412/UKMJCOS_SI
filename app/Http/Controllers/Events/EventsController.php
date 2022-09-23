@@ -21,8 +21,7 @@ class EventsController extends Controller
             'active' => 'events',
             'title' => 'Events',
             'events' => $events->all(),
-            'roles' => json_decode($events->get()[0]->roles_panitia),
-            
+            // 'roles' => json_decode($events->get()[0]->roles_panitia),
         ]);
 
     }
@@ -61,22 +60,6 @@ class EventsController extends Controller
         Events::create($validatedData);        
 
         return redirect('/events')->with('success', 'event has been added!');
-        // $validatedData = $request->validate([
-        //     'nama_event' => 'required',
-        //     'tanggal' => 'required',
-        //     'waktu' => 'required',
-        //     'ketua_event' => 'required',
-        //     'roles_panitia' => 'required',
-        // ]);
-
-        // dd(json_encode($request->roles_panitia));
-        
-        // $event->nama_event = $request->input('nama_event');
-        // $event->tanggal = $request->input('tanggal');
-        // $event->waktu = $request->input('waktu');
-        // $event->ketua_event = $request->input('ketua_event');
-        // $event->roles_panitia = $request->input('roles_panitia');
-        // $event->save();
 
     }
 
@@ -98,12 +81,13 @@ class EventsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
+    {   
+        $get_roles = json_encode(Events::where('id', $id)->get()[0]->roles_panitia); 
         return view('pengurus.events.edit', [
             'title' => 'Detail Event',
             'active' => 'events',
             'events' => Events::where('id', $id)->get(),
-            'roles' => json_decode(Events::where('id', $id)->get()[0]->roles_panitia),
+            'roles' => json_decode($get_roles, TRUE),
         ]);
     }
 
@@ -116,7 +100,21 @@ class EventsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $rules = [
+            'nama_event' => 'required',
+            'tanggal' => 'required',
+            'waktu' => 'required',
+            'ketua_event' => 'required',
+            'roles_panitia' => 'required',
+        ];
+
+
+        $validatedData = $request->validate($rules);
+
+        Events::find($id)->update($validatedData);
+
+        return redirect('/events')->with('success', 'event has been edited!');
+
     }
 
     /**

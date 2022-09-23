@@ -20,7 +20,7 @@
             {{-- data anggota dan button new --}}
             <div class="flex justify-between w-19 ml-12 mr-20 mt-8">
                 <span class="self-center text-2xl font-medium text-black uppercase">Data Anggota</span>
-                <a href="/data_anggota/create" class="btn btn-primary">Create New</a>
+                <a href="/data_anggota/create" class="btn btn-primary">Add Anggota</a>
             </div>
 
             <div class="overflow-x-auto">
@@ -69,9 +69,12 @@
                         @endforeach
                     </tbody>
                 </table>
+
                 <div class="ml-20 w-5/6">
                     {{ $users->links() }}
-                </div>
+                </div>     
             </div>
+        </div>
+    </div>
 </body>
 </html>

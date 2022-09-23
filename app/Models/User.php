@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Absensi;
+use App\Models\Content;
 
 class User extends Authenticatable
 {
@@ -40,4 +42,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public $timestamps = false;
+    
+    public function absensi(){
+        return $this->hasMany(Absensi::class);
+    }
+
+    public function content(){
+        return $this->hasMany(Content::class);
+    }
 }

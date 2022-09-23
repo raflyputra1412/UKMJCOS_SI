@@ -16,10 +16,11 @@ class DataAnggotaController extends Controller
      */
     public function index()
     {
+        
         return view('pengurus.data_anggota.index', [
             'title' => 'Data Anggota',
             'active' => 'data_anggota',
-            'users' => User::orderBy('nim', 'asc')->paginate(3),
+            'users' => User::orderBy('nim', 'asc')->paginate(10),
         ]);
     }
 

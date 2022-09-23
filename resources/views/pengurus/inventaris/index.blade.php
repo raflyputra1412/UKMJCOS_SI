@@ -35,6 +35,7 @@
                     </div>
                 @endif
 
+                {{-- @if ($inventaris->count()) --}}
                 <table class="table table-compact w-5/6 mt-5 self-center ml-16">
                     <thead>
                         <tr>
@@ -49,7 +50,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($inventaris as $invent)
+                        @forelse ($inventaris as $invent)
                             <tr class="hover hover:cursor-pointer">
                                 <td>{{ $invent->nama_barang }}</td>
                                 <td>{{ $invent->harga}}</td>
@@ -67,9 +68,13 @@
                                         <button class="btn bg-red-600 text-white btn-xs"> Delete </button>
                                     </form>
                                 </td>
+                                @empty
+                                <td colspan="8" class="text-white text-center">Inventaris tidak ditemukan.</td>
                             </tr>
-                        @endforeach
+                            
+                        @endforelse
                 </table>
+
                 <div class="ml-12 w-5/6">
                     {{ $inventaris->links() }}
                 </div>
