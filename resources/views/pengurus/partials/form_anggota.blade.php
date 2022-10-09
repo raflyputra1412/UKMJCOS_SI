@@ -14,7 +14,11 @@
           <span class="label-text uppercase tracking-wide text-gray-700 text-sm font-bold ml-1">Nomor Induk Mahasiswa</span>
         </label>
         <label class="w-full p-2">
-          <input type="text" name="nim" placeholder="NIM" class="input input-bordered w-full">
+          <input type="text" name="nim" placeholder="NIM" class="input input-bordered w-full" value="{{ old('nim') }}" >
+          
+          @error('nim')
+            <span class="font-medium tracking-wide text-red-500 text-xs mt-1 ml-1"> {{ $message }}</span>
+          @enderror
         </label>
       </div>
 
@@ -23,7 +27,11 @@
           <span class="label-text uppercase tracking-wide text-gray-700 text-sm font-bold ml-1">Nama Lengkap</span>
         </label>
         <label class="w-full p-2">
-          <input type="text" name="nama_lengkap" placeholder="Nama Lengkap" class="input input-bordered w-full">
+          <input type="text" name="nama_lengkap" placeholder="Nama Lengkap" class="input input-bordered w-full" value="{{ old('nama_lengkap') }}" >
+
+          @error('nama_lengkap')
+            <span class="font-medium tracking-wide text-red-500 text-xs mt-1 ml-1"> {{ $message }}</span>
+          @enderror
         </label>
       </div>
       {{--3 input  --}}
@@ -41,14 +49,22 @@
               <option>S1-Bisnis Digital</option>
               <option>D3-Manajemen Informatika</option>
             </select>
+
           </label>
+          @error('program_studi')
+            <span class="font-medium tracking-wide text-red-500 text-xs mt-1 ml-1"> {{ $message }}</span>
+          @enderror
         </div>
         <div class="flex flex-col basis-1/3 mt-2">
           <label class="label">
             <span class="label-text uppercase tracking-wide text-gray-700 text-sm font-bold ml-1">Angkatan</span>
           </label>
           <label class="w-full p-2">
-            <input type="text" name="angkatan" placeholder="Angkatan" class="input input-bordered w-full">
+            <input type="text" name="angkatan" placeholder="Angkatan" class="input input-bordered w-full" value="{{ old('angkatan') }}">
+
+            @error('angkatan')
+              <span class="font-medium tracking-wide text-red-500 text-xs mt-1 ml-1"> {{ $message }}</span>
+            @enderror
           </label>
         </div>
         <div class="flex flex-col basis-1/3 mt-2">
@@ -62,6 +78,9 @@
                 <option>Anggota</option>
               </select>
             </label>
+            @error('jabatan')
+              <span class="font-medium tracking-wide text-red-500 text-xs mt-1 ml-1"> {{ $message }}</span>
+            @enderror
           </div>
       </div>
       {{-- end 3 input --}}
@@ -72,7 +91,11 @@
             <span class="label-text uppercase tracking-wide text-gray-700 text-sm font-bold ml-1">No Hp</span>
           </label>
           <label class="w-full p-2">
-            <input type="text" name="no_hp" placeholder="No Hp" class="input input-bordered w-full">
+            <input type="text" name="no_hp" placeholder="No Hp" class="input input-bordered w-full" value="{{ old('no_hp') }}">
+
+            @error('no_hp')
+              <span class="font-medium tracking-wide text-red-500 text-xs mt-1 ml-1"> {{ $message }}</span>
+            @enderror
           </label>
         </div>
         <div class="flex flex-col basis-1/2 mt-2">
@@ -80,7 +103,11 @@
             <span class="label-text uppercase tracking-wide text-gray-700 text-sm font-bold ml-1">Email</span>
           </label>
           <label class="w-full p-2">
-            <input type="text" name="email" placeholder="Email" class="input input-bordered w-full">
+            <input type="text" name="email" placeholder="Email" class="input input-bordered w-full" value="{{ old('email') }}">
+
+            @error('email')
+              <span class="font-medium tracking-wide text-red-500 text-xs mt-1 ml-1"> {{ $message }}</span>
+            @enderror
           </label>
         </div>
       </div>
@@ -90,7 +117,11 @@
           <span class="label-text uppercase tracking-wide text-gray-700 text-sm font-bold ml-1">Alamat</span>
         </label>
         <label class="w-full p-2">
-          <input type="text" name="alamat" placeholder="Alamat" class="input input-bordered w-full">
+          <input type="text" name="alamat" placeholder="Alamat" class="input input-bordered w-full" value="{{ old('alamat') }}">
+          
+          @error('alamat')
+            <span class="font-medium tracking-wide text-red-500 text-xs mt-1 ml-1"> {{ $message }}</span>
+          @enderror
         </label>
       </div>
       <div class="flex flex-col basis-4/6 mt-2">
@@ -99,6 +130,7 @@
         </label>
         <label class="w-full p-2">
           <input type="text" name="password" value="CC381" class="input input-bordered w-full" readonly>
+          <p class=" tracking-wide text-red-700 text-xs mt-2">*Default password</p>
         </label>
         <button class="btn w-20 self-end mt-5 mb-5 btn-primary">Submit</button>
       </div>

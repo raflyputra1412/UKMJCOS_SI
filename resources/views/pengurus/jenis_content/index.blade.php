@@ -18,6 +18,7 @@
             <div class="flex justify-between w-19 mr-20 ml-12 mt-8">
                 <span class="self-center text-2xl font-medium text-black uppercase">Jenis Content</span>
                 <div>
+                    <a href="/content" class="btn btn-primary">Back</a>
                     <a href="/jenis_content/create" class="btn btn-warning">Tambah Jenis Content</a>
                 </div>
             </div>

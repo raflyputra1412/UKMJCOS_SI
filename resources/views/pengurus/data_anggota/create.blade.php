@@ -10,7 +10,7 @@
 </head>
 
 <body class="w-full h-full bg-white">
-    <div class="flex h-full xl:container overflow-auto">
+    <div class="flex h-screen xl:container overflow-auto">
         {{-- ini navbar --}}
         @include('pengurus.partials.navbar')
 

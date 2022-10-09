@@ -29,7 +29,13 @@
             
                     <div class="ml-4 text-black">
                     <h2 class="font-semibold">Upcoming Event</h2>
-                    <p class="mt-2 text-sm text-gray-500">Last opened 4 days ago</p>
+                    <p class="mt-2 text-sm text-gray-500">
+                        @if($upcoming_event == true)
+                            {{ $upcoming_event->nama_event }}
+                            @else
+                            <p class="mt-2 text-sm text-gray-500">Event not found</p>
+                        @endif
+                    </p>
                     </div>
                 </div>
             
@@ -42,7 +48,9 @@
             
                     <div class="ml-4 text-black">
                     <h2 class="font-semibold">{{ $user }} Anggota </h2>
-                    <p class="mt-2 text-sm text-gray-500">Last checked 3 days ago</p>
+                        @foreach ($last_added_user as $item)
+                            <p class="mt-2 text-sm text-gray-500">Last added {{ $item->created_at->diffForHumans() }}</p>
+                        @endforeach
                     </div>
                 </div>
                 <div class="flex items-start rounded-xl bg-white p-4 shadow-lg">
@@ -54,9 +62,11 @@
             
                     <div class="ml-4 text-black">
                     <h2 class="font-semibold">{{ $content }} Posts</h2> 
-                        @foreach ($last_added_content as $item)
-                        <p class="mt-2 text-sm text-gray-500">Last authored {{ $item->created_at->diffForHumans() }}</p>
-                        @endforeach
+                        @forelse ($last_added_content as $item)
+                            <p class="mt-2 text-sm text-gray-500">Last authored {{ $item->created_at->diffForHumans() }}</p>
+                            @empty
+                            <p class="mt-2 text-sm text-gray-500">Content not found</p>
+                        @endforelse
                     </div>
                 </div>
                 <div class="flex items-start rounded-xl bg-white p-4 shadow-lg">
@@ -68,7 +78,12 @@
             
                     <div class="ml-4 text-black">
                     <h2 class="font-semibold">{{ $inventaris }} Inventaris</h2>
-                    <p class="mt-2 text-sm text-gray-500">Last commented 8 days ago</p>
+                        @forelse ($last_added_inventaris as $item)
+                            <p class="mt-2 text-sm text-gray-500">Last added {{ $item->created_at->diffForHumans() }}</p>
+                            @empty
+                            <p class="mt-2 text-sm text-gray-500">Inventaris not found</p>
+                        @endforelse
+                    </div>
                     </div>
                 </div>
                 </div>

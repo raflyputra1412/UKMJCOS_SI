@@ -43,7 +43,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public $timestamps = false;
+    public $timestamps = true;
     
     public function absensi(){
         return $this->hasMany(Absensi::class);

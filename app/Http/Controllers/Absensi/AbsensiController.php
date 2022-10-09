@@ -79,7 +79,11 @@ class AbsensiController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('pengurus.absensi_pertemuan.edit', [
+            'title' => 'Edit Pertemuan',
+            'active' => 'pertemuan',
+            'pertemuans' => Pertemuan::where('id', $id)->get(),
+        ]);
     }
 
     /**
@@ -89,9 +93,19 @@ class AbsensiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Pertemuan $pertemuan ,$id)
     {
-        //
+        $rules = [
+            'pekan' => 'required',
+            'tanggal' => 'required',
+            'waktu' => 'required',
+            'nama_kegiatan' => 'required',
+        ];
+
+        $validatedData = $request->validate($rules);
+        $pertemuan::find($id)->update($validatedData);
+
+        return redirect('/absensi')->with('success', 'Jadwal Berhasil di Update!');
     }
 
     /**

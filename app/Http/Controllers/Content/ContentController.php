@@ -56,7 +56,7 @@ class ContentController extends Controller
             'judul' => 'required',
             'ringkasan' => 'required',
             'deskripsi' => 'required',
-            'gambar' => 'required|mimes:jpg,png,jpeg|max:2048',
+            'gambar' => 'required|mimes:jpg,png,jpeg|max:10000',
             'user_id' => 'required',
             'jenis_content_id' => 'required'
         ]);
@@ -127,7 +127,7 @@ class ContentController extends Controller
             'judul' => 'required',
             'ringkasan' => 'required',
             'deskripsi' => 'required',
-            'gambar' => 'required|mimes:jpg,png,jpeg|max:2048',
+            'gambar' => 'required|mimes:jpg,png,jpeg|max:10000',
             'user_id' => 'required',
             'jenis_content_id' => 'required'
         ]);

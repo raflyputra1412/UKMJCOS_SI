@@ -89,13 +89,13 @@ class DatabaseSeeder extends Seeder
             'tgl_input' => Carbon::parse('8/5/2020'),
         ]);
 
-        Events::create([
-            'nama_event' => 'Japanese Festival',
-            'tanggal' => Carbon::parse('01/07/2022'),
-            'waktu' => '10:00 WITA',
-            'ketua_event' => 'Fauzi Safaringga',
-            'roles_panitia' => json_encode(["sekretaris", "bendahara"," konsumroh"], true),
-        ]);
+        // Events::create([
+        //     'nama_event' => 'Japanese Festival',
+        //     'tanggal' => Carbon::parse('01/07/2022'),
+        //     'waktu' => '10:00 WITA',
+        //     'ketua_event' => 'Fauzi Safaringga',
+        //     'roles_panitia' => json_encode(["sekretaris", "bendahara"," konsumroh"], true),
+        // ]);
 
     }
 }

@@ -108,6 +108,6 @@ class AuthenticateUserController extends Controller
     {
         $request->session()->flush();
         Auth::logout();
-        return Redirect('login');
+        return Redirect('/');
     }
 }

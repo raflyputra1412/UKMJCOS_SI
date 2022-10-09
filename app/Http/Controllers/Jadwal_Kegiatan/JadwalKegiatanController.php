@@ -18,7 +18,7 @@ class JadwalKegiatanController extends Controller
         return view('pengurus.jadwal_kegiatan.index', [
             'title' => 'Jadwal Kegiatan',
             'active' => 'jadwal_kegiatan',
-            'jadwals' => JadwalKegiatan::first()->paginate(2),
+            'jadwals' => JadwalKegiatan::orderBy('id', 'asc')->paginate(5),
         ]);
     }
 

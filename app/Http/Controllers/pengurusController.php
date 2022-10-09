@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Content;
 use App\Models\Inventaris;
 use App\Models\User;
+use App\Models\Events;
 use Illuminate\Http\Request;
 
 class pengurusController extends Controller
@@ -17,15 +18,21 @@ class pengurusController extends Controller
     public function index()
     {   
         $user = User::count();
+        $last_user = User::orderBy('id', 'desc')->limit(1)->get(); 
         $content = Content::count();
         $last_content = Content::orderBy('id', 'desc')->limit(1)->get(); 
-        $inventaris = Inventaris::count(); 
+        $inventaris = Inventaris::count();
+        $last_inventaris = Inventaris::orderBy('id', 'desc')->limit(1)->get(); 
+        $upcoming_event = Events::orderBy('created_at', 'desc')->first();
         return view('pengurus.index', [
             'active' => 'dashboard',
             'user' => $user,
-            'last_added_content' => $last_content,
+            'last_added_user' => $last_user,
             'content' => $content,
+            'last_added_content' => $last_content,
             'inventaris' => $inventaris,
+            'last_added_inventaris' => $last_inventaris,
+            'upcoming_event' => $upcoming_event,
         ]);
     }
 

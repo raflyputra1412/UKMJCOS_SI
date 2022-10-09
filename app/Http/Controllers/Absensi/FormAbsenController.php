@@ -18,11 +18,6 @@ class FormAbsenController extends Controller
 
         $databsen = Absensi::where('pertemuan_id',  $request->query('pertemuan'))->get();
 
-        // $databsen = Absensi::where =  $request->query('pertemuan');
-        // error_log('-----');
-        // error_log( var_export( $databsen, true ));
-        // error_log('-----');
-
         return view('pengurus.absensi_pertemuan.form_absensi', [
             'pertemuan' => $pertemuan,
             'users' => $users,
@@ -33,23 +28,7 @@ class FormAbsenController extends Controller
         ]);
     }
 
-    // public function test(Request $request)
-    // {
-    //     $pertemuan = Pertemuan::where('id',  $request->query('pertemuan'))->first();
-
-    //     return view('pengurus.test', [
-    //         'pertemuan' => $pertemuan,
-    //     ]);
-    // }
-
     public function store(Request $request, Absensi $absensi){
-        // $rules = [
-        //     'user_id' => 'required',
-        //     'pertemuan_id' => 'required',
-        //     'nama_anggota' => 'required',
-        //     'nim' => 'required',
-        //     'kehadiran' => 'required',
-        // ];
             
         $request->validate([
             'user_id' => 'required',
@@ -70,15 +49,8 @@ class FormAbsenController extends Controller
                     
             $absensi = new Absensi;
 
-            // $absensi->nama_anggota = 'test';
-          
-            // $absensi->kehadiran = 'hadir';
-            // $absensi->where('user_id',  (int) $id)->where('pertemuan_id', $request->pertemuan_id)->save();
-           
-
             if(isset( $decoded_absen[$id]  ) ){
 
-                // dd($request->kehadiran);
                 error_log('atas');
                 $absensi->where([
                     ['user_id',  (int) $id],
@@ -96,13 +68,6 @@ class FormAbsenController extends Controller
                 $absensi->save();
             }
         } 
-
-        
-
-        // dd($absensi);
-
-        // $validatedData = $request->validate($rules);
-        // Absensi::create($validatedData);
 
         return redirect('/absensi');
     }

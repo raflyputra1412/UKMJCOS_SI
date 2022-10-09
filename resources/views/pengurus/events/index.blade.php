@@ -47,7 +47,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($events as $event)
+                        @forelse ($events as $event)
                             <tr class="hover hover:cursor-pointer">
                                 <td>{{ $event->nama_event }}</td>
                                 <td>{{ $event->tanggal }}</td>
@@ -63,8 +63,10 @@
                                         <button class="btn bg-red-600 text-white btn-xs"> Delete </button>
                                     </form>
                                 </td>
+                                @empty
+                                <td colspan="8" class="text-white text-center">Event tidak ditemukan.</td>
                             </tr>
-                        @endforeach
+                        @endforelse
                 </table>
                 <div class="ml-12 w-5/6">
                     {{-- {{ $events->links() }} --}}

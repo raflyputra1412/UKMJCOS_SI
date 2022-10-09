@@ -46,7 +46,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($jadwals as $jadwal)
+                        @forelse ($jadwals as $jadwal)
                             <tr class="hover hover:cursor-pointer">
                                 <td>{{ $jadwal->tanggal }}</td>
                                 <td>{{ $jadwal->waktu }}</td>
@@ -62,8 +62,10 @@
                                         <button class="btn bg-red-600 text-white btn-xs"> Delete </button>
                                     </form>
                                 </td>
+                                @empty
+                                <td colspan="8" class="text-white text-center">Jadwal Kegiatan tidak ditemukan.</td>
                             </tr>
-                        @endforeach
+                        @endforelse
                 </table>
                 <div class="ml-12 w-5/6">
                     {{ $jadwals->links() }}

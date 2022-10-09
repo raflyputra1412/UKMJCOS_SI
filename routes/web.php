@@ -15,6 +15,8 @@ use App\Http\Controllers\Events\EventsController;
 use App\Http\Controllers\Inventaris\InventarisController;
 use App\Http\Controllers\Jadwal_Kegiatan\JadwalKegiatanController;
 use App\Http\Controllers\Jenis_content\JenisContentController;
+use App\Http\Controllers\RegisterController;
+use App\Models\Content;
 // use App\Models\JadwalKegiatan;
 // use Illuminate\Console\Scheduling\Event;
 use Illuminate\Support\Facades\Route;
@@ -35,11 +37,19 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', function(){
-    return view('welcome');
+    return view('homepage', [
+        'title' => 'Japanese Community of Stikom Bali',
+        'active' => 'homepage',
+        'contents' => Content::orderBy('id', 'asc')->paginate(6),
+    ]);
 });
-Route::get('/login', [AuthenticateUserController::class, 'create'])->name('login');
+Route::get('/login', [AuthenticateUserController::class, 'create'])->name('login')->middleware('guest');
 Route::post('/login', [AuthenticateUserController::class, 'store']);
 Route::get('/logout', [AuthenticateUserController::class, 'destroy'])->name('logout');
+
+Route::get('/register', [RegisterController::class, 'create'])->name('register')->middleware('guest');
+Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
+
 
 
 Route::group(['middleware' => ['auth']], function () {

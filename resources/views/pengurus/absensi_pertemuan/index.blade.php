@@ -54,9 +54,9 @@
                             <td>{{ $pertemuan->nama_kegiatan }}</td>
                             <td><a href="/form_absen/create?pertemuan={{ $pertemuan->id }}"
                                     class="btn btn-primary btn-xs text-white"> Detail </a></td>
-                        </tr>
                         @empty
-                            <p>Tidak ada pertemuan</p>
+                            <td colspan="8" class="text-white text-center">Pertemuan tidak ditemukan.</td>
+                        </tr>
                         @endforelse
                     </tbody>
                 </table>

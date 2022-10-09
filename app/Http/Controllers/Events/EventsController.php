@@ -15,15 +15,11 @@ class EventsController extends Controller
      */
     public function index(Events $events)
     {
-        // dd(json_decode($event->get()));
-
         return view('pengurus.events.index', [
             'active' => 'events',
             'title' => 'Events',
             'events' => $events->all(),
-            // 'roles' => json_decode($events->get()[0]->roles_panitia),
         ]);
-
     }
 
     /**
